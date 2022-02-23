@@ -14,7 +14,7 @@
 <!--    <context:annotation-config/>-->
     <context:component-scan base-package="com.spring.orm.xml"/>
 
-    <!--    <tx:annotation-driven/>-->
+<!--        <tx:annotation-driven/>-->
     <tx:annotation-driven proxy-target-class="true"/>
 
     <!--dataSource bean-->
@@ -35,6 +35,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL95Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.connection.autocommit">true</prop>
             </props>
         </property>
         <!--annotatedClasses property-->

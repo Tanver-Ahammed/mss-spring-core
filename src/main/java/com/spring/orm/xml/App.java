@@ -78,6 +78,8 @@ public class App {
                         break;
                     }
                     case 5: {
+                        System.out.print("Enter Product ID: ");
+                        int id = scanner.nextInt();
                         System.out.print("Enter Product Name: ");
                         String name = scanner.nextLine();
                         if (name.isEmpty())
@@ -88,7 +90,7 @@ public class App {
                             type = scanner.nextLine();
                         System.out.print("Enter Product Price: ");
                         double price = scanner.nextDouble();
-                        dao.updateProduct(new Product(name, type, price));
+                        dao.updateProduct(new Product(id, name, type, price));
                         break;
                     }
                     // terminate
@@ -100,6 +102,7 @@ public class App {
                 }
             } catch (Exception e) {
                 System.out.println("Some thing Error. Please, Try Again!!");
+                e.printStackTrace();
             }
             System.out.println();
         }

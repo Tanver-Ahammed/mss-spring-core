@@ -51,6 +51,7 @@ public class ProductDaoImplements implements ProductDao {
     }
 
     @Override
+    @Transactional
     public void updateProduct(Product product) {
         this.getHibernateTemplate().update(product);
         System.out.println(product.getProductId() + " is Updated successfully.....");

@@ -8,19 +8,19 @@ import java.util.List;
 
 public interface ProductDao {
 
-    @Transactional
+//    @Transactional
     int insertProduct(Product product);
 
-    @Transactional
+//    @Transactional
     Product getSingleProduct(int productId);
 
-    @Transactional
+//    @Transactional
     List<Product> getAllProduct();
 
-    @Transactional
+//    @Transactional
     void deleteProduct(int productId);
 
-    @Transactional
+//    @Transactional
     void updateProduct(Product product);
 
 }
