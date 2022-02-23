@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:component-scan base-package="com.spring.core.p9.spEL"/>
+
+    <!--standalone util-->
+    <util:list list-class="java.util.ArrayList" id="phones">
+        <value>0571-651465</value>
+        <value>0571-6554654</value>
+        <value>0571-65459</value>
+        <value>0571-9687498</value>
+    </util:list>
+
+</beans>

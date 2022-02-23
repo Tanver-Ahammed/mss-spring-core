@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--Standalone Collection-->
+    <util:list list-class="java.util.LinkedList" id="myBestFriends">
+        <value>Saurav</value>
+        <value>Monayem</value>
+        <value>Hasi</value>
+        <value>Popu</value>
+        <value>Emran</value>
+    </util:list>
+    <util:set set-class="java.util.HashSet" id="myPhones">
+        <value>0571-56416516</value>
+        <value>0571-54654</value>
+        <value>0571-5485454</value>
+        <value>0571-987494</value>
+    </util:set>
+    <util:map map-class="java.util.TreeMap" id="myFeeStructure">
+        <entry key="Java" value="5000"/>
+        <entry key="Advanced" value="6000"/>
+        <entry key="Hibernate" value="2000"/>
+        <entry key="Spring" value="10000"/>
+    </util:map>
+    <util:properties id="dbProperty">
+        <prop key="Driver">org.postgres.Driver</prop>
+        <prop key="uri">jdbc:postgres://localhost:5432/ict_db</prop>
+        <prop key="user">postgres</prop>
+        <prop key="password">5641</prop>
+    </util:properties>
+
+
+    <!--person bean-->
+    <bean class="com.spring.core.p7.standalone.Person" name="person">
+        <property name="friends" ref="myBestFriends"/>
+        <property name="phones" ref="myPhones"/>
+        <property name="feeStructure" ref="myFeeStructure"/>
+        <property name="properties" ref="dbProperty"/>
+    </bean>
+
+</beans>

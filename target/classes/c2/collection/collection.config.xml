@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.spring.core.p2.collection.Employee" name="employee">
+        <property name="name" value="Md. Tanver Ahammed"/>
+        <property name="phones">
+            <list>
+                <value>+571-61654</value>
+                <value>+571-6549645</value>
+                <value>+571-6559</value>
+                <value>+571-3464</value>
+            </list>
+        </property>
+        <property name="addresses">
+            <set>
+                <value>Joypurhat</value>
+                <value>Tangail</value>
+                <value>Dhaka</value>
+                <value>Rajshahi</value>
+            </set>
+        </property>
+        <property name="courses">
+            <map>
+                <entry key="Java" value="2 Year"/>
+                <entry key="JakartaEE" value="6 Month"/>
+                <entry key="Hibernate Framework" value="1 Month"/>
+                <entry key="Spring Framework" value="6 Month"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="Driver">org.postgres.Driver</prop>
+                <prop key="url">jdbc:postgres://localhost:5432/springjdbc</prop>
+                <prop key="user">postgres</prop>
+                <prop key="password">postgres</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

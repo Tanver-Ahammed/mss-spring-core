@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--address bean-->
+    <bean class="com.spring.core.p3.reference.Address" name="address1">
+        <property name="street" value="Bhashani Street"/>
+        <property name="city" value="Tangail"/>
+    </bean>
+    <bean class="com.spring.core.p3.reference.Address" name="address2">
+        <property name="street" value="Sadar Street"/>
+        <property name="city" value="Tangail"/>
+    </bean>
+
+    <!--student bean-->
+    <bean class="com.spring.core.p3.reference.Student" name="student1">
+        <property name="id" value="19016"/>
+        <property name="name" value="Md. Tanver Ahammed"/>
+        <property name="address" ref="address1"/>
+    </bean>
+
+    <!--student bean using as p schema-->
+    <bean class="com.spring.core.p3.reference.Student" name="student2"
+          p:id="19017" p:name="Mst. Sheuly Akter" p:address-ref="address2">
+    </bean>
+
+</beans>

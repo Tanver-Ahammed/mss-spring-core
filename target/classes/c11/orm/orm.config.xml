@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!---->
+<!--    <context:annotation-config/>-->
+    <context:component-scan base-package="com.spring.orm.xml"/>
+
+    <!--    <tx:annotation-driven/>-->
+    <tx:annotation-driven proxy-target-class="true"/>
+
+    <!--dataSource bean-->
+    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="dataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/springjdbc"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="Tanver@123"/>
+    </bean>
+
+    <!--sessionFactory bean-->
+    <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="sessionFactory">
+        <!--dataSource property-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--hibernateProperties property-->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL95Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+        <!--annotatedClasses property-->
+        <property name="annotatedClasses">
+            <list>
+                <value>com.spring.orm.xml.entities.Product</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--hibernateTemplate bean-->
+    <bean class="org.springframework.orm.hibernate5.HibernateTemplate" name="hibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--studentDaoImplement bean-->
+<!--    <bean class="com.spring.orm.xml.dao.ProductDaoImplements" name="productDaoImplements">-->
+<!--        <property name="hibernateTemplate" ref="hibernateTemplate"/>-->
+<!--    </bean>-->
+
+    <!--hibernateTransactionManager bean-->
+    <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" name="transactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+</beans>

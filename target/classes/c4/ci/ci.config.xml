@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--certificate bean-->
+    <bean class="com.spring.core.p4.constructor.injection.Certificate" name="certificate1">
+        <constructor-arg name="id" value="01"/>
+        <constructor-arg name="name" value="Java Using Spring Framework"/>
+    </bean>
+    <bean class="com.spring.core.p4.constructor.injection.Certificate" name="certificate2">
+        <constructor-arg name="id" value="02"/>
+        <constructor-arg name="name" value="Networking"/>
+    </bean>
+    <bean class="com.spring.core.p4.constructor.injection.Certificate" name="certificate3"
+          c:id="02" c:name="Discrete Math"/>
+
+    <!--bean using as <value> tag>-->
+    <bean class="com.spring.core.p4.constructor.injection.Person" name="person1">
+        <constructor-arg name="id">
+            <value>101</value>
+        </constructor-arg>
+        <constructor-arg name="name">
+            <value>Md. Tanver AHammed</value>
+        </constructor-arg>
+        <constructor-arg name="certificate">
+            <ref bean="certificate1"/>
+        </constructor-arg>
+    </bean>
+
+    <!--bean using as value argument>-->
+    <bean class="com.spring.core.p4.constructor.injection.Person" name="person2">
+        <constructor-arg name="id" value="102"/>
+        <constructor-arg name="name" value="Sheuly"/>
+        <constructor-arg name="certificate" ref="certificate2"/>
+    </bean>
+
+    <!--bean using as c schema>-->
+    <bean class="com.spring.core.p4.constructor.injection.Person" name="person3" c:id="103"
+          c:name="Tariq" c:certificate-ref="certificate3">
+    </bean>
+
+    <!--addition bean-->
+    <bean class="com.spring.core.p4.constructor.injection.Addition" name="addition">
+        <constructor-arg value="10" type="int" index="1"/>
+        <constructor-arg value="20" type="int" index="0"/>
+    </bean>
+
+</beans>
