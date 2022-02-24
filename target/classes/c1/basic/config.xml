@@ -13,7 +13,7 @@
         <property name="name">
             <value>Md. Tanver Ahammed</value>
         </property>
-        <property name="address">
+        <property name="city">
             <value>Joypurhat</value>
         </property>
     </bean>
@@ -22,11 +22,11 @@
     <bean class="com.spring.core.p1.basic.Student" name="student2">
         <property name="id" value="19017"/>
         <property name="name" value="Sheuly Akter"/>
-        <property name="address" value="Tangail"/>
+        <property name="city" value="Tangail"/>
     </bean>
 
     <!--bean using value as p schema-->
     <bean class="com.spring.core.p1.basic.Student" name="student3" p:id="19018" p:name="Tariq Islam"
-          p:address="Tangail"/>
+          p:city="Tangail"/>
 
 </beans>
